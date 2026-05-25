@@ -39,7 +39,7 @@ nav {
 }
 
 .nav-links {
-  @apply hidden md:flex gap-8 items-center;
+  @apply flex gap-8 items-center;
 }
 
 .nav-links a {
