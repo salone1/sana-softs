@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { contactEmail, phoneNumber, whatsappLink, socialLinks } from "../config/siteConfig";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -17,7 +18,7 @@ function Contact() {
     e.preventDefault();
     const { subject, message, name, email } = formData;
     const mailBody = `From: ${name} (${email})\n\n${message}`;
-    window.location.href = `mailto:lonesalis4@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(mailBody)}`;
+    window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(mailBody)}`;
     setFormData({ subject: "", message: "", name: "", email: "" });
   };
 
@@ -45,32 +46,28 @@ function Contact() {
                 <div>
                   <h3 className="text-blue-600 font-bold mb-2">Email</h3>
                   <p className="text-gray-700">
-                    <a href="mailto:lonesalis4@gmail.com" className="hover:underline">
-                      lonesalis4@gmail.com
+                    <a href={`mailto:${contactEmail}`} className="hover:underline">
+                      {contactEmail}
                     </a>
                   </p>
-                  <p className="text-gray-600 text-sm mt-2">
-                    Response time: Within 24 hours
-                  </p>
+                  <p className="text-gray-600 text-sm mt-2">Response time: Within 24 hours</p>
                 </div>
 
                 <div>
                   <h3 className="text-blue-600 font-bold mb-2">Phone & WhatsApp</h3>
                   <p className="text-gray-700">
-                    <a href="#" className="hover:underline">
-                      +0 XXX-XXX-XXXX
+                    <a href={whatsappLink} className="hover:underline" target="_blank" rel="noreferrer">
+                      {phoneNumber}
                     </a>
                   </p>
-                  <p className="text-gray-600 text-sm mt-2">
-                    Monday - Friday, 9 AM - 6 PM
-                  </p>
+                  <p className="text-gray-600 text-sm mt-2">Monday - Friday, 9 AM - 6 PM</p>
                 </div>
 
                 <div>
                   <h3 className="text-blue-600 font-bold mb-4">Follow Us</h3>
                   <div className="space-y-3">
                     <a
-                      href="https://t.me/salislone"
+                      href={socialLinks.telegram}
                       target="_blank"
                       rel="noreferrer"
                       className="block bg-blue-500 hover:bg-blue-600 text-white px-4 py-3 rounded transition text-center"
@@ -78,7 +75,7 @@ function Contact() {
                       🔗 Telegram
                     </a>
                     <a
-                      href="https://instagram.com/salis.lone"
+                      href={socialLinks.instagram}
                       target="_blank"
                       rel="noreferrer"
                       className="block bg-pink-500 hover:bg-pink-600 text-white px-4 py-3 rounded transition text-center"
@@ -86,7 +83,7 @@ function Contact() {
                       📸 Instagram
                     </a>
                     <a
-                      href="https://github.com/salone1"
+                      href={socialLinks.github}
                       target="_blank"
                       rel="noreferrer"
                       className="block bg-gray-800 hover:bg-gray-900 text-white px-4 py-3 rounded transition text-center"
@@ -105,9 +102,7 @@ function Contact() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="name" className="block font-semibold mb-2">
-                        Your Name
-                      </label>
+                      <label htmlFor="name" className="block font-semibold mb-2">Your Name</label>
                       <input
                         type="text"
                         id="name"
@@ -120,9 +115,7 @@ function Contact() {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block font-semibold mb-2">
-                        Your Email
-                      </label>
+                      <label htmlFor="email" className="block font-semibold mb-2">Your Email</label>
                       <input
                         type="email"
                         id="email"
@@ -137,9 +130,7 @@ function Contact() {
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block font-semibold mb-2">
-                      Subject
-                    </label>
+                    <label htmlFor="subject" className="block font-semibold mb-2">Subject</label>
                     <input
                       type="text"
                       id="subject"
@@ -153,9 +144,7 @@ function Contact() {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block font-semibold mb-2">
-                      Message
-                    </label>
+                    <label htmlFor="message" className="block font-semibold mb-2">Message</label>
                     <textarea
                       id="message"
                       name="message"
@@ -168,17 +157,10 @@ function Contact() {
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    className="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition"
-                  >
-                    Send Message
-                  </button>
+                  <button type="submit" className="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition">Send Message</button>
                 </form>
 
-                <p className="text-gray-600 text-sm mt-4">
-                  💡 Tip: For faster response, please include relevant details about your project or inquiry.
-                </p>
+                <p className="text-gray-600 text-sm mt-4">💡 Tip: For faster response, please include relevant details about your project or inquiry.</p>
               </div>
             </div>
           </div>
@@ -193,9 +175,7 @@ function Contact() {
           <div className="space-y-6">
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="text-blue-600 font-bold mb-2">How long does it take to develop an app?</h3>
-              <p className="text-gray-700">
-                Project timelines vary based on complexity. A simple app might take 4-6 weeks, while complex projects can take several months. We'll provide a detailed timeline after discussing your requirements.
-              </p>
+              <p className="text-gray-700">Project timelines vary based on complexity. A simple app might take 4-6 weeks, while complex projects can take several months. We'll provide a detailed timeline after discussing your requirements.</p>
             </div>
 
             <div className="bg-white p-6 rounded-lg shadow-sm">

@@ -1,25 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import apps from "../data/apps";
 
 function Apps() {
-  const apps = [
-    {
-      id: "calendar",
-      name: "JK Hijri Calendar App",
-      icon: "📅",
-      description: "A powerful calendar application with Hijri calendar management.",
-      shortDesc: "Organize your schedule with Hijri and kashmiri dates  and boost your productivity.",
-      category: "Productivity",
-    },
-    {
-      id: "notes",
-      name: "Smart Notes App",
-      icon: "📝",
-      description: "Intelligent notes app for capturing and organizing your thoughts.",
-      shortDesc: "Take notes instantly. Search, sync, and organize your ideas across all devices.",
-      category: "Productivity",
-    },
-  ];
 
   return (
     <>

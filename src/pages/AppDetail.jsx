@@ -1,91 +1,11 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
+import apps from "../data/apps";
 
 function AppDetail() {
   const { id } = useParams();
 
-  const appData = {
-    calendar: {
-      name: "JK Hijri Calendar App",
-      icon: "📅",
-      version: "1.0.9",
-      rating: "4.8",
-      downloads: "50+",
-      description: "A comprehensive calendar application that helps you organize your schedule, manage events, and boost productivity.",
-      features: [
-        "Create and manage events with ease",
-        "Set reminders for important tasks",
-        "Share calendars with friends and colleagues",
-        "Sync across multiple devices",
-        "Beautiful, intuitive user interface",
-        "Offline support",
-        "Dark/Light mode",
-        "Search and filter events",
-      ],
-      screenshots: [
-        "📱 Clean, modern interface",
-        "📊 Event statistics and analytics",
-        "🔔 Smart notifications",
-        "🌍 Global timezone support",
-      ],
-      useCases: [
-        "Personal schedule management",
-        "Team collaboration and event planning",
-        "Project timeline tracking",
-        "Meeting scheduling",
-        "Birthday and anniversary reminders",
-      ],
-      changelog: [
-        "v1.0.9 - Bug fixes and performance improvements",
-        "v1.0.7 -  Redesign with feedback support",
-        "v1.0.5 - Added Holidays feature",
-        "v1.0.0 - Offline support implementation",
-      ],
-      downloadLink: "https://github.com/salone1/Portfolio/releases/download/v1.0.5/app-release.apk",
-      playStoreLink: "#",
-    },
-    notes: {
-      name: "Smart Notes App",
-      icon: "📝",
-      version: "1.5.3",
-      rating: "4.7",
-      downloads: "30+",
-      description: "An intelligent notes app that helps you capture, organize, and access your thoughts from anywhere.",
-      features: [
-        "Create rich text notes",
-        "Voice-to-text recording",
-        "Smart search and tagging",
-        "Notes synchronization",
-        "Cloud backup",
-        "Category organization",
-        "Pin important notes",
-        "Export notes to PDF/Email",
-      ],
-      screenshots: [
-        "📝 Distraction-free writing",
-        "🏷️ Smart categorization",
-        "🔐 Secure encryption",
-        "☁️ Cloud synchronization",
-      ],
-      useCases: [
-        "Personal journaling",
-        "Meeting notes",
-        "Study material compilation",
-        "Creative brainstorming",
-        "To-do lists and reminders",
-      ],
-      changelog: [
-        "v1.5.3 - Enhanced search functionality",
-        "v1.5.0 - Added voice-to-text feature",
-        "v1.4.0 - Cloud backup integration",
-        "v1.3.0 - Note sharing capability",
-      ],
-      downloadLink: "#",
-      playStoreLink: "#",
-    },
-  };
-
-  const app = appData[id];
+  const app = apps.find((a) => a.id === id);
 
   if (!app) {
     return (

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { companyName, portfolioLink } from "../config/siteConfig";
 
 function Home() {
   return (
@@ -7,7 +8,7 @@ function Home() {
       {/* Hero Section */}
       <section className="hero bg-gradient-to-r from-blue-600 to-blue-800 text-white py-24">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="text-white mb-4">Welcome to SANA Softs</h1>
+          <h1 className="text-white mb-4">Welcome to {companyName}</h1>
           <p className="text-gray-100 text-xl mb-8 max-w-3xl mx-auto">
             Innovative Software Solutions for Modern Businesses
           </p>
@@ -149,12 +150,7 @@ function Home() {
               His commitment to excellence, user-centric design, and continuous innovation has made SANA Softs a trusted name in the software industry.
             </p>
             <div className="text-center mt-6">
-              <a
-                href="https://salone1.github.io/Portfolio/"
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-outline"
-              >
+              <a href={portfolioLink} target="_blank" rel="noreferrer" className="btn btn-outline">
                 Visit Portfolio
               </a>
             </div>
