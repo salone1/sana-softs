@@ -44,14 +44,6 @@ function Navbar() {
                 {link.name}
               </Link>
             ))}
-
-            <Link
-              to="/contact"
-              onClick={() => setIsOpen(false)}
-              className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition font-medium mt-2 md:mt-0 inline-block"
-            >
-              Contact
-            </Link>
           </div>
         </div>
       </div>

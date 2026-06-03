@@ -76,19 +76,19 @@ function Apps() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="mb-8">Download Our Apps</h2>
           <p className="text-lg text-gray-700 mb-8">
-            All our apps are available on Google Play Store and as APK files for direct download. Choose what works best for you.
+            All our apps are available on the Indus App Store and as APK files for direct download. Choose the option that works best for you.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <a
-              href="https://play.google.com/store/apps"
+              href="https://indus.app/"
               target="_blank"
               rel="noreferrer"
               className="btn btn-primary"
             >
-              📱 Google Play Store
+              📱 Indus App Store
             </a>
             <a
-              href="https://github.com/salone1/Portfolio/releases"
+              href="https://github.com/salone1/sana-softs/releases"
               target="_blank"
               rel="noreferrer"
               className="btn btn-secondary"

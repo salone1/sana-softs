@@ -1,26 +1,7 @@
-import React, { useState } from "react";
-import { contactEmail, phoneNumber, whatsappLink, socialLinks } from "../config/siteConfig";
+import React from "react";
+import { contactFormLink, contactFormEmbedLink, phoneNumber, whatsappLink, socialLinks } from "../config/siteConfig";
 
 function Contact() {
-  const [formData, setFormData] = useState({
-    subject: "",
-    message: "",
-    name: "",
-    email: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const { subject, message, name, email } = formData;
-    const mailBody = `From: ${name} (${email})\n\n${message}`;
-    window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(mailBody)}`;
-    setFormData({ subject: "", message: "", name: "", email: "" });
-  };
 
   return (
     <>
@@ -44,13 +25,9 @@ function Contact() {
 
               <div className="space-y-8">
                 <div>
-                  <h3 className="text-blue-600 font-bold mb-2">Email</h3>
-                  <p className="text-gray-700">
-                    <a href={`mailto:${contactEmail}`} className="hover:underline">
-                      {contactEmail}
-                    </a>
-                  </p>
-                  <p className="text-gray-600 text-sm mt-2">Response time: Within 24 hours</p>
+                  <h3 className="text-blue-600 font-bold mb-2">Get in Touch</h3>
+                  <p className="text-gray-700">Fill out the form or reach us through:</p>
+                  <p className="text-gray-600 text-sm mt-2">We respond within 24 hours</p>
                 </div>
 
                 <div>
@@ -99,68 +76,29 @@ function Contact() {
             <div className="md:col-span-2">
               <div className="bg-gray-50 p-8 rounded-lg">
                 <h2 className="mb-8">Send us a Message</h2>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="name" className="block font-semibold mb-2">Your Name</label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="John Doe"
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block font-semibold mb-2">Your Email</label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="john@example.com"
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                      />
-                    </div>
-                  </div>
+                <p className="text-gray-700 mb-6">Submit your request directly below. No extra clicks are needed — the Google Form is embedded right on the page.</p>
 
-                  <div>
-                    <label htmlFor="subject" className="block font-semibold mb-2">Subject</label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      placeholder="What is this about?"
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                    />
-                  </div>
+                <div className="mb-6 overflow-hidden rounded-lg border border-gray-200 shadow-sm">
+                  <iframe
+                    src={contactFormEmbedLink}
+                    title="Google Contact Form"
+                    className="w-full h-[720px]"
+                    frameBorder="0"
+                    marginHeight="0"
+                    marginWidth="0"
+                    scrolling="auto"
+                  >
+                    Loading…
+                  </iframe>
+                </div>
 
-                  <div>
-                    <label htmlFor="message" className="block font-semibold mb-2">Message</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Tell us more about your project..."
-                      required
-                      rows="6"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                    />
-                  </div>
-
-                  <button type="submit" className="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition">Send Message</button>
-                </form>
-
-                <p className="text-gray-600 text-sm mt-4">💡 Tip: For faster response, please include relevant details about your project or inquiry.</p>
+                <p className="text-gray-600 text-sm">
+                  If the form does not display in your browser, open it directly:
+                  <a href={contactFormLink} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline ml-1">
+                    Open Google Form
+                  </a>
+                </p>
+                <p className="text-gray-600 text-sm mt-4">💡 We also respond via WhatsApp and social channels if you need faster assistance.</p>
               </div>
             </div>
           </div>

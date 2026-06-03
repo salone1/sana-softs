@@ -15,7 +15,7 @@ function Services() {
         "App store optimization",
         "Ongoing support and updates",
       ],
-      price: "Starting from $5,000",
+      price: "Starting from 5,000",
     },
     {
       id: 2,
@@ -29,7 +29,7 @@ function Services() {
         "Progressive web apps",
         "SEO optimization",
       ],
-      price: "Starting from $3,000",
+      price: "Starting from 3,000",
     },
     {
       id: 3,
@@ -43,7 +43,7 @@ function Services() {
         "Database management",
         "Performance optimization",
       ],
-      price: "Starting from $2,000",
+      price: "Starting from 2,000",
     },
     {
       id: 4,
@@ -71,7 +71,7 @@ function Services() {
         "GDPR compliance",
         "Penetration testing",
       ],
-      price: "Starting from $3,000",
+      price: "Starting from 3,000",
     },
     {
       id: 6,
@@ -85,7 +85,7 @@ function Services() {
         "API documentation",
         "Rate limiting & security",
       ],
-      price: "Starting from $2,500",
+      price: "Starting from 2,500",
     },
   ];
 

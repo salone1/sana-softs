@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { contactFormLink } from "../config/siteConfig";
 
 function Careers() {
   const positions = [
@@ -135,7 +136,7 @@ function Careers() {
                 </div>
                 <p className="text-gray-700 mb-4">{position.description}</p>
                 <a
-                  href={`mailto:careers@sanasofts.com?subject=Application for - ${encodeURIComponent(position.title)}`}
+                  href={contactFormLink} target="_blank" rel="noreferrer"
                   className="btn btn-primary inline-block"
                 >
                   Apply Now
@@ -150,7 +151,7 @@ function Careers() {
               We're always looking for talented individuals. Feel free to reach out with your profile and experience!
             </p>
             <a
-              href="mailto:careers@sanasofts.com?subject=Inquiry about careers at SANA Softs"
+              href={contactFormLink} target="_blank" rel="noreferrer"
               className="btn btn-primary"
             >
               Send us your CV
@@ -216,7 +217,7 @@ function Careers() {
             Join SANA Softs and be part of a team creating innovative software solutions.
           </p>
           <a
-            href="mailto:careers@sanasofts.com"
+            href={contactFormLink} target="_blank" rel="noreferrer"
             className="btn bg-blue-600 text-white hover:bg-blue-700"
           >
             Get in Touch

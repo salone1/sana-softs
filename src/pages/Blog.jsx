@@ -52,7 +52,7 @@ function Blog() {
       date: "April 28, 2026",
       image: "🚀",
       excerpt:
-        "We're excited to announce the launch of our new mobile app suite designed to boost productivity. Download now from Google Play Store.",
+        "We're excited to announce the launch of our new mobile app suite designed to boost productivity. Download now from the Indus App Store.",
       readTime: "5 min read",
     },
     {

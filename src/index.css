@@ -170,7 +170,7 @@ footer {
 }
 
 .social-links a {
-  @apply inline-block bg-black-600 hover:bg-blue-700 px-4 py-2 rounded transition;
+  @apply inline-block bg-black hover:bg-blue-700 px-4 py-2 rounded transition;
 }
 
 /* Responsive */

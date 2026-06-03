@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import apps from "../data/apps";
 import { companyName, portfolioLink } from "../config/siteConfig";
 
 function Home() {
@@ -36,7 +37,7 @@ function Home() {
                 <strong>SANA Softs</strong> is a professional software company dedicated to building reliable, scalable, and user-friendly applications for businesses and individuals worldwide.
               </p>
               <p className="text-lg text-gray-700 mb-4">
-                Founded by <strong>Salis Amin Lone Nadiya Rafiq</strong>, our mission is to bridge the gap between innovation and practicality, delivering software solutions that make a real difference.
+                Founded by <strong>Salis Amin Lone & Nadiya Rafiq</strong>, our mission is to bridge the gap between innovation and practicality, delivering software solutions that make a real difference.
               </p>
               <p className="text-lg text-gray-700 mb-6">
                 We specialize in mobile app development, web solutions, cloud deployment, and enterprise consulting. Our team is committed to excellence, reliability, and continuous innovation.
@@ -70,26 +71,16 @@ function Home() {
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-center mb-12">Featured Apps</h2>
           <div className="card-grid">
-            <div className="card">
-              <div className="text-4xl mb-4">📅</div>
-              <h3>JK Hijri Calendar App</h3>
-              <p className="text-gray-600">
-                A powerful calendar application designed for productivity. Organize your schedule, set reminders, and manage events effortlessly.
-              </p>
-              <Link to="/apps/calendar" className="btn btn-primary inline-block">
-                View Details
-              </Link>
-            </div>
-            <div className="card">
-              <div className="text-4xl mb-4">📝</div>
-              <h3>Smart Notes App</h3>
-              <p className="text-gray-600">
-                Capture your thoughts instantly. Our intelligent notes app helps you organize, search, and sync your notes across devices.
-              </p>
-              <Link to="/apps/notes" className="btn btn-primary inline-block">
-                View Details
-              </Link>
-            </div>
+            {apps.map((app) => (
+              <div key={app.id} className="card">
+                <div className="text-4xl mb-4">{app.icon}</div>
+                <h3>{app.name}</h3>
+                <p className="text-gray-600">{app.shortDesc}</p>
+                <Link to={`/apps/${app.id}`} className="btn btn-primary inline-block">
+                  View Details
+                </Link>
+              </div>
+            ))}
             <div className="card">
               <div className="text-4xl mb-4">🚀</div>
               <h3>More Apps Coming Soon</h3>
@@ -153,6 +144,31 @@ function Home() {
               <a href={portfolioLink} target="_blank" rel="noreferrer" className="btn btn-outline">
                 Visit Portfolio
               </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Co-Founder Section */}
+      <section className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-center mb-12">Meet Our Co-Founder</h2>
+          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            <div className="text-center">
+              <div className="text-7xl mb-4">👩‍💼</div>
+              <h3>Nadiya Rafiq</h3>
+              <p className="text-blue-600 font-semibold mb-4">Co-Founder</p>
+              <p className="text-gray-700">
+                A visionary leader and strategic innovator co-founding SANA Softs to transform businesses through cutting-edge technology solutions. Nadiya's dedication to excellence and user experience drives the company's mission forward.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="text-7xl mb-4">👨‍💼</div>
+              <h3>Salis Amin Lone</h3>
+              <p className="text-blue-600 font-semibold mb-4">Co-Founder & Lead Developer</p>
+              <p className="text-gray-700">
+                A passionate software developer and entrepreneur with deep expertise in mobile and web development. Salis leads the technical vision and innovation strategy at SANA Softs.
+              </p>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { privacyEmail, contactEmail, address, phoneNumber } from "../config/siteConfig";
+import { contactFormLink, address, phoneNumber } from "../config/siteConfig";
 
 function PrivacyPolicy() {
   return (
@@ -100,7 +100,7 @@ function PrivacyPolicy() {
             <div>
               <h2 className="text-2xl font-bold mb-4">Your Rights</h2>
               <p className="text-gray-700">
-                You have the right to request access to, correction of, or deletion of your personal information. You can also opt-out of our marketing communications at any time. To exercise these rights, please contact us at <strong>{privacyEmail}</strong>.
+                You have the right to request access to, correction of, or deletion of your personal information. You can also opt-out of our marketing communications at any time. To exercise these rights, please <a href={contactFormLink} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline font-semibold">contact us using this form</a>.
               </p>
             </div>
 
@@ -119,7 +119,7 @@ function PrivacyPolicy() {
                 If you have any questions about this Privacy Policy or our privacy practices, please contact us at:
               </p>
               <div className="mt-4 space-y-2">
-                <p className="text-gray-700"><strong>Email:</strong> {contactEmail}</p>
+                <p className="text-gray-700"><strong>Contact:</strong> <a href={contactFormLink} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">Use our contact form</a></p>
                 <p className="text-gray-700"><strong>Address:</strong> {address}</p>
                 <p className="text-gray-700"><strong>Phone:</strong> {phoneNumber}</p>
               </div>

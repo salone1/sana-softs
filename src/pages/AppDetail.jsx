@@ -6,6 +6,7 @@ function AppDetail() {
   const { id } = useParams();
 
   const app = apps.find((a) => a.id === id);
+  const storeAvailable = app && app.storeLink && app.storeLink !== "#";
 
   if (!app) {
     return (
@@ -45,9 +46,15 @@ function AppDetail() {
             <a href={app.downloadLink} target="_blank" rel="noreferrer" className="btn bg-blue-600 text-white hover:bg-blue-700 font-bold">
               📥 Download APK
             </a>
-            <a href={app.playStoreLink} target="_blank" rel="noreferrer" className="btn bg-green-600 text-white hover:bg-green-700 font-bold">
-              🏪 Google Play Store
-            </a>
+            {storeAvailable ? (
+              <a href={app.storeLink} target="_blank" rel="noreferrer" className="btn bg-green-600 text-white hover:bg-green-700 font-bold">
+                🏪 Indus App Store
+              </a>
+            ) : (
+              <button className="btn bg-gray-400 text-white cursor-not-allowed" disabled>
+                🏪 Indus App Store Coming Soon
+              </button>
+            )}
             <Link to="/apps" className="btn btn-secondary">
               ← Back to Apps
             </Link>
@@ -124,9 +131,15 @@ function AppDetail() {
               <a href={app.downloadLink} target="_blank" rel="noreferrer" className="btn bg-blue-600 text-white hover:bg-blue-700 font-bold">
                 📥 Download APK
               </a>
-              <a href={app.playStoreLink} target="_blank" rel="noreferrer" className="btn bg-green-600 text-white hover:bg-green-700 font-bold">
-                🏪 Get on Play Store
-              </a>
+              {storeAvailable ? (
+                <a href={app.storeLink} target="_blank" rel="noreferrer" className="btn bg-green-600 text-white hover:bg-green-700 font-bold">
+                  🏪 Get on Indus App Store
+                </a>
+              ) : (
+                <button className="btn bg-gray-400 text-white cursor-not-allowed" disabled>
+                  🏪 Indus App Store Coming Soon
+                </button>
+              )}
             </div>
           </div>
         </div>
