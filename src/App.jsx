@@ -15,8 +15,10 @@ import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
 
 function App() {
+  const basename = import.meta.env.BASE_URL;
+
   return (
-    <Router>
+    <Router basename={basename}>
       <Navbar />
       <main>
         <Routes>
