@@ -14,10 +14,8 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 
 function App() {
-  const basename = import.meta.env.BASE_URL;
-
   return (
-    <Router basename={basename}>
+    <Router>
       <Navbar />
       <main>
         <Routes>
