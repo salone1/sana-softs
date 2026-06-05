@@ -96,6 +96,8 @@ When Cloudflare detects your project:
 - **Build output directory**: `dist`
 - **Environment variables**: (leave blank for now)
 
+> Note: the app now uses `HashRouter` for client-side routing, so Cloudflare Pages and GitHub Pages will both preserve navigation without server-side route fallback.
+
 ### Step 3: Deploy
 
 Click **Save and Deploy**
