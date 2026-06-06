@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://sanasofts.salone.workers.dev/</loc>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://sanasofts.salone.workers.dev/#/about</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://sanasofts.salone.workers.dev/#/services</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://sanasofts.salone.workers.dev/#/apps</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://sanasofts.salone.workers.dev/#/contact</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://sanasofts.salone.workers.dev/#/blog</loc>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://sanasofts.salone.workers.dev/#/privacy</loc>
+    <priority>0.40</priority>
+  </url>
+  <url>
+    <loc>https://sanasofts.salone.workers.dev/#/terms</loc>
+    <priority>0.40</priority>
+  </url>
+</urlset>
