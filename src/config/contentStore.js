@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 const STORAGE_KEY = "sana-softs-content-v1";
+const API_BASE = import.meta.env.VITE_API_BASE || "";
 
 export const defaultSiteContent = {
   companyName: "SANA Softs",
@@ -115,10 +116,49 @@ export function getStoredContent() {
   }
 }
 
-export function saveSiteContent(nextContent) {
+export async function fetchRemoteContent() {
+  try {
+    const response = await fetch(`${API_BASE}/api/content`);
+    if (!response.ok) {
+      return null;
+    }
+
+    const remoteContent = await response.json();
+    if (remoteContent && typeof remoteContent === "object" && !remoteContent.error) {
+      return deepMerge(defaultSiteContent, remoteContent);
+    }
+  } catch (error) {
+    console.warn("Unable to fetch remote content", error);
+  }
+
+  return null;
+}
+
+export async function saveSiteContent(nextContent, password) {
   const merged = deepMerge(defaultSiteContent, nextContent);
 
   if (typeof window !== "undefined") {
+    try {
+      const response = await fetch(`${API_BASE}/api/content`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          content: merged,
+          password,
+        }),
+      });
+
+      if (response.ok) {
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+        window.dispatchEvent(new Event("sana-content-updated"));
+        return merged;
+      }
+    } catch (error) {
+      console.warn("Unable to sync content to API", error);
+    }
+
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
     window.dispatchEvent(new Event("sana-content-updated"));
   }
@@ -130,9 +170,26 @@ export function useSiteContent() {
   const [content, setContent] = useState(() => getStoredContent());
 
   useEffect(() => {
+    let isMounted = true;
+
+    const loadRemoteContent = async () => {
+      const remoteContent = await fetchRemoteContent();
+      if (isMounted && remoteContent) {
+        setContent(remoteContent);
+        if (typeof window !== "undefined") {
+          window.localStorage.setItem(STORAGE_KEY, JSON.stringify(remoteContent));
+        }
+      }
+    };
+
+    loadRemoteContent();
+
     const handleUpdate = () => setContent(getStoredContent());
     window.addEventListener("sana-content-updated", handleUpdate);
-    return () => window.removeEventListener("sana-content-updated", handleUpdate);
+    return () => {
+      isMounted = false;
+      window.removeEventListener("sana-content-updated", handleUpdate);
+    };
   }, []);
 
   return content;

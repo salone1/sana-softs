@@ -107,6 +107,26 @@ function Admin() {
 
   const handleLogin = async (event) => {
     event.preventDefault();
+
+    try {
+      const response = await fetch("/api/auth", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ password }),
+      });
+
+      if (response.ok) {
+        window.sessionStorage.setItem("sana-admin-auth", "true");
+        setIsAuthenticated(true);
+        setStatusMessage("Access granted.");
+        return;
+      }
+    } catch (error) {
+      // Fall back to the local password flow if the backend is not available yet.
+    }
+
     const storedHash = window.localStorage.getItem(PASSWORD_STORAGE_KEY);
     const enteredHash = await hashPassword(password);
 
@@ -194,10 +214,15 @@ function Admin() {
     setStatusMessage(`${selectedActionMeta.title} changes are ready. Use final publish to update the website.`);
   };
 
-  const handlePublishChanges = (event) => {
+  const handlePublishChanges = async (event) => {
     event.preventDefault();
-    saveSiteContent(draft);
-    setStatusMessage("Website content has been published successfully.");
+
+    try {
+      await saveSiteContent(draft, password);
+      setStatusMessage("Website content has been published successfully.");
+    } catch (error) {
+      setStatusMessage("Publish failed. Please check your password and try again.");
+    }
   };
 
   const handleResetDraft = () => {
@@ -266,7 +291,7 @@ function Admin() {
         <div className="w-full max-w-md rounded-2xl border border-white/10 bg-white/10 p-8 shadow-2xl backdrop-blur">
           <p className="text-sm uppercase tracking-[0.3em] text-blue-300">Private admin access</p>
           <h1 className="mt-3 text-3xl font-bold">Sign in to manage content</h1>
-          <p className="mt-3 text-slate-300">This area stays hidden from public navigation and is intended for secure content updates. Your data is saved locally and changes do not require a redeploy.</p>
+          <p className="mt-3 text-slate-300">This area stays hidden from public navigation and is intended for secure content updates. Changes are verified server-side and published through the website backend.</p>
           {!hasPasswordSetup ? (
             <form className="mt-8" onSubmit={handleSetupPassword}>
               <label className="mb-2 block text-sm font-medium text-slate-200" htmlFor="setupPassword">
