@@ -17,6 +17,15 @@ html {
   scroll-behavior: smooth;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.prose a {
+  @apply text-blue-600 hover:text-blue-800;
+}
+
 /* Navbar Styles */
 nav {
   @apply bg-white shadow-md sticky top-0 z-50;

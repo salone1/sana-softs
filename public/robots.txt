@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /admin
 
 Sitemap: https://sanasofts.salone.workers.dev/sitemap.xml
