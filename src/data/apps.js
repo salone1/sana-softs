@@ -3,7 +3,7 @@ export const apps = [
     id: "calendar",
     name: "JK Hijri Calendar App",
     icon: "📅",
-    version: "1.0.9",
+    version: "1.2.0",
     rating: "4.8",
     downloads: "50+",
     category: "Productivity",
@@ -31,6 +31,7 @@ export const apps = [
       "Birthday and anniversary reminders",
     ],
     changelog: [
+      "v1.2.0 - Reduced app size and improved notification system for better performance",
       "v1.0.5 - Bug fixes and performance improvements",
       "v1.0.4 - Major redesign with dark mode support",
       "v1.0.2 - Added event sharing feature",
